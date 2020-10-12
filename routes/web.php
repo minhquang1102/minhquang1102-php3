@@ -95,3 +95,18 @@ Route::post('/post-login', function(Request $request) {
     return redirect()->route('get-login');
 
 })->name('post-login');
+
+Route::resource('student', StudentController::class);
+Route::resource('posts', PostController::class);
+Route::resource('comments', CommentController::class);
+Route::resource('categorys', CategoryController::class);
+
+Route::get('subjects', [SubjectController::class, 'index'])
+
+    ->name('subjects.index');
+
+Route::get('/post', function () {
+    $post = \App\Models\Post::find(2);
+    $comment = \App\Models\Comment::find(1);
+    dd($comment->post);
+});

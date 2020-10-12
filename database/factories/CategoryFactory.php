@@ -24,8 +24,8 @@ class CategoryFactory extends Factory
     {
         return [
             'parent_id' => $this->faker->numberBetween(1, 10),
-            'name' => $this->faker->text(5),
-            'status' => 1
+            'name' => $this->faker->name,
+            'status' => $this->faker->numberBetween(0,1),
         ];
     }
 }

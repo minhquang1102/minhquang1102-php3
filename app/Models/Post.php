@@ -33,4 +33,16 @@ class Post extends Model
     public function categories() {
         return $this->belongsToMany(Category::class, 'category_post', 'post_id', 'category_id');
     }
+
+    // lấy tên sinh viên
+    // post->student_id
+    public function getStudentName()
+    {
+        $studentName = Student::find($this->student_id);
+        if ($studentName) {
+            return $studentName->name;
+        }
+
+        return null;
+    }
 }

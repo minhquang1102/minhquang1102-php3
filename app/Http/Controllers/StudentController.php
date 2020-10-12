@@ -16,7 +16,7 @@ class StudentController extends Controller
     // index() su dung phuong thuc GET, route name la students.index
     public function index()
     {
-        // $students = Student::all(); //lay ra het
+        $students = Student::all(); //lay ra het
         // hoac $students = Student::orderBy('id', 'desc')->get();
         $students = Student::paginate(5); // lay ra ds co phan trang (5 phan tu/1trang)
         // Them param page="gia tri page"
@@ -105,7 +105,7 @@ class StudentController extends Controller
         // Hoac $student->update([$request->all()])
         // Khong can save
 
-        return redirect()->route('students.index');
+        return redirect()->route('student.index');
     }
 
     /**
@@ -124,5 +124,6 @@ class StudentController extends Controller
         // Cach 2: Student::destroy($student->id); // tra ve so luong ban ghi bi xoa
         // Redirect ve danh sach (co thuc hien truy van lay ds moi)
         return redirect()->route('students.index');
+        return redirect()->route('student.index');
     }
 }
